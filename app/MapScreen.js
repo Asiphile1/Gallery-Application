@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import MapView, { Marker } from 'react-native-maps';
-import { View, StyleSheet } from 'react-native';
-import { fetchImages } from '../database/SQLiteDatabase';
+import React, { useState, useEffect } from "react";
+import MapView, { Marker } from "react-native-maps";
+import { View, StyleSheet } from "react-native";
+import { fetchImages } from "../database/SQLiteDatabase";
 
 const MapScreen = () => {
   const [images, setImages] = useState([]);
@@ -13,10 +13,13 @@ const MapScreen = () => {
   return (
     <View style={styles.container}>
       <MapView style={styles.map}>
-        {images.map(image => (
+        {images.map((image) => (
           <Marker
             key={image.id}
-            coordinate={{ latitude: image.latitude, longitude: image.longitude }}
+            coordinate={{
+              latitude: image.latitude,
+              longitude: image.longitude,
+            }}
             title="Image Location"
           />
         ))}

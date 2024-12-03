@@ -1,6 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { View, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { fetchImages } from '../database/SQLiteDatabase';
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import { fetchImages } from "../database/SQLiteDatabase";
 
 const GalleryScreen = ({ navigation }) => {
   const [images, setImages] = useState([]);
@@ -10,7 +16,9 @@ const GalleryScreen = ({ navigation }) => {
   }, []);
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('ImageDetails', { image: item })}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("ImageDetails", { image: item })}
+    >
       <Image source={{ uri: item.uri }} style={styles.image} />
     </TouchableOpacity>
   );
