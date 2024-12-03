@@ -1,50 +1,122 @@
-# Welcome to your Expo app 👋
+# GalleryApp
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+GalleryApp is a cross-platform mobile and web application built using React Native and Expo. The app allows users to browse a gallery of images, view image details, and locate image origins on a map. It supports functionality on Android, iOS, and the web.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Gallery Screen:** Displays a grid of images for users to explore.
+- **Image Details Screen:** Provides additional details about a selected image.
+- **Map Integration:** Shows the geographic origin of images on an interactive map.
+- **Cross-Platform Support:** Fully functional on Android, iOS, and web platforms.
 
-   ```bash
-   npm install
-   ```
+## Technologies Used
 
-2. Start the app
+- **Frontend:**
+  - [React Native](https://reactnative.dev/)
+  - [Expo](https://expo.dev/)
+  - [React Navigation](https://reactnavigation.org/)
+  - [react-native-maps](https://github.com/react-native-maps/react-native-maps) (for mobile maps)
+  - [react-leaflet](https://react-leaflet.js.org/) (for web maps)
+- **Development Tools:**
+  - Expo CLI
+  - Node.js
+- **Other Dependencies:**
+  - `expo-location`: To access user location.
+  - `expo-image-picker`: For selecting and uploading images.
+  - `react-native-gesture-handler`, `react-native-reanimated`: For better navigation gestures.
+  - `expo-splash-screen`: Custom splash screen support.
 
-   ```bash
-    npx expo start
-   ```
+## Installation
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+1. Clone the repository:
+```
+   git clone https://github.com/your-username/GalleryApp.git
+   cd GalleryApp
+```
+2. Install dependencies:
+```
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+3. Start the app:
 
-## Learn more
+```
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+4. Test the app on:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+* Mobile: Scan the QR code in Expo Go on your device.
+* Web: Press w in the terminal to launch the app in a web browser.
 
-## Join the community
+## Project Structure
 
-Join our community of developers creating universal apps.
+```
+GalleryApp/
+├── app/                    # Main app directory for pages
+│   ├── index.js            # Entry file for the app
+│   ├── GalleryScreen.js    # Gallery view component
+│   ├── ImageDetailsScreen.js  # Image details component
+│   └── MapScreen.js        # Map view component
+├── assets/                 # Static assets like images and icons
+│   ├── images/
+│   ├── favicon.png         # Web favicon
+│   └── splash-icon.png     # Splash screen icon
+├── node_modules/           # Installed node modules
+├── package.json            # Project dependencies and scripts
+├── app.json                # Expo configuration
+└── README.md               # Project documentation
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Configuration
+
+Make sure you have the following configurations in place:
+
+1. Expo App Configuration (app.json):
+
+* Update the app name, icon, and splash screen details.
+* Ensure platform-specific configurations like adaptiveIcon for Android and supportsTablet for iOS.
+
+2. Web Maps Configuration:
+
+* Add the Leaflet CSS link to your public/index.html file for web map support:
+```
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha512-XQoYMqMTK8LvdlxUmw6tCX00N6CkCEpE9uK1rZnH8p0zv4hWOgGT2P9G+La8N+g41zVAg34YGoF6IH3wxT7S+g=="
+  crossorigin=""
+/>
+```
+
+## Troubleshooting
+
+* "Cannot record touch end without a touch start":
+
+* This error might occur due to improper gesture handling. Ensure you’ve installed and linked react-native-gesture-handler correctly.
+
+* "Unable to resolve module @react-navigation/stack":
+
+
+* Install the missing navigation stack package:
+```
+npm install @react-navigation/stack
+```
+
+* Web-specific Errors:
+
+* Ensure platform-specific code for web maps is implemented using react-leaflet.
+
+## Future Enhancements
+
+* Add user authentication to secure access.
+* Enable users to upload and manage their images.
+* Enhance the map functionality to display additional data layers.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Acknowledgements
+Special thanks to the Expo team and React Native community for their amazing tools and resources, even though it was very difficult to use.
+
